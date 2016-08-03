@@ -29,4 +29,28 @@ describe('Thermostat', function() {
     expect(thermostat.getCurrentTemperature()).toEqual(10);
     //expect(function(){thermostat.getCurrentTemperature();}).toThrowError('Minimum temperature reached');
   });
+
+  it('has power saving model on by default', function() {
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
+  it('can switch power saving mode off', function() {
+    thermostat.switchPowerSavingModeOff();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+  });
+
+  it('can switch power saving mode back on', function(){
+    thermostat.switchPowerSavingModeOff();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+    thermostat.switchPowerSavingModeOn();
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+
+  });
+
+  // it('when power saving mode is on, maximum temperature is 25 degrees', function() {
+  //   for(var i = 20; i<27; i++) {
+  //     thermostat.up();
+  //   }
+  //  expect(thermostat.getCurrentTemperature()).toEqual(25);
+  // });
+
 });
