@@ -43,7 +43,14 @@ describe('Thermostat', function() {
     expect(thermostat.isPowerSavingModeOn()).toBe(false);
     thermostat.switchPowerSavingModeOn();
     expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
 
+  it('can reset temperature to 20', function() {
+    for(var i = 0; i<6; i++) {
+      thermostat.up();
+    }
+    thermostat.resetTemperature();
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
   describe('when power saving mode is on', function() {
