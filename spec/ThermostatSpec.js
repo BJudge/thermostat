@@ -78,23 +78,23 @@ describe('Thermostat', function() {
         for(var i = 0; i< 3; i++) {
           thermostat.down();
         }
-        expect(thermostat.energyUsage()).toEqual('Low Usage');
+        expect(thermostat.energyUsage()).toEqual('low-usage');
       });
     });
 
     describe('it should display yellow when temperature is between 18 and 25 degrees', function() {
       it('displays medium usage', function() {
-        expect(thermostat.energyUsage()).toEqual('Medium Usage');
+        expect(thermostat.energyUsage()).toEqual('medium-usage');
       });
     });
 
     describe('it should display red when above 25 degress', function() {
       it('displays high usage', function() {
-        thermostat.powerSavingMode = false  
+        thermostat.powerSavingMode = false
         for(var i = 0; i<6; i++) {
           thermostat.up();
         }
-        expect(thermostat.energyUsage()).toEqual('High Usage');
+        expect(thermostat.energyUsage()).toEqual('high-usage');
       });
     });
 
